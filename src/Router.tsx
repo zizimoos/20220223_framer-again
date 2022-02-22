@@ -5,6 +5,7 @@ import Home from "./routes/Home";
 import Gesture from "./components/Gesture";
 import Drag from "./components/Drag";
 import MotionValue from "./components/MotionValue";
+import UseViewportScroll from "./components/UseViewportScroll";
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/gesture" element={<Gesture />} />
         <Route path="/drag" element={<Drag />} />
         <Route path="/motionvalue" element={<MotionValue />} />
+        <Route path="/useviewportscroll" element={<UseViewportScroll />} />
       </Routes>
     </BrowserRouter>
   );

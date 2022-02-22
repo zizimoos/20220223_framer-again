@@ -1,10 +1,15 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useViewportScroll,
+} from "framer-motion";
 
 import styled from "styled-components";
 
 const Wrapper = styled(motion.div)`
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +26,7 @@ const Box = styled(motion.div)`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 
-function MotionValue() {
+function UseViewportScroll() {
   const x = useMotionValue(0);
   // const scale = useTransform(x, [-600, 0, 600], [0.2, 2, 0.2]);
   const rotateZ = useTransform(x, [-600, 0, 600], [-360, 0, 360]);
@@ -34,11 +39,18 @@ function MotionValue() {
     ]
   );
 
+  const { scrollYProgress } = useViewportScroll();
+  const scaleScrollY = useTransform(scrollYProgress, [0, 1], [0, 10]);
+
   return (
     <Wrapper style={{ background: gradient }}>
-      <Box style={{ x: x, rotateZ: rotateZ }} drag="x" dragSnapToOrigin />
+      <Box
+        style={{ x: x, rotateZ: rotateZ, scale: scaleScrollY }}
+        drag="x"
+        dragSnapToOrigin
+      />
     </Wrapper>
   );
 }
 
-export default MotionValue;
+export default UseViewportScroll;
