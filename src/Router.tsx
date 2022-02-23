@@ -6,6 +6,11 @@ import Gesture from "./components/Gesture";
 import Drag from "./components/Drag";
 import MotionValue from "./components/MotionValue";
 import UseViewportScroll from "./components/UseViewportScroll";
+import SVGAnimation from "./components/SVGAnimation";
+import AnimationPresenceFn from "./components/AnimationPresenceFn";
+import SliderComponent from "./components/SliderComponent";
+import SharedLayout from "./components/SharedLayout";
+import MagicMotion from "./components/MagicMotion";
 
 const Router = () => {
   return (
@@ -19,6 +24,11 @@ const Router = () => {
         <Route path="/drag" element={<Drag />} />
         <Route path="/motionvalue" element={<MotionValue />} />
         <Route path="/useviewportscroll" element={<UseViewportScroll />} />
+        <Route path="/svganimation" element={<SVGAnimation />} />
+        <Route path="/animationpresence" element={<AnimationPresenceFn />} />
+        <Route path="/slider" element={<SliderComponent />} />
+        <Route path="/sharedlayout" element={<SharedLayout />} />
+        <Route path="/magic" element={<MagicMotion />} />
       </Routes>
     </BrowserRouter>
   );
